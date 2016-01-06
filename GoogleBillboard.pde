@@ -28,9 +28,14 @@ public boolean isPrime(double num) {
 }
 
 public double findSum(double num) {
-  
   String sNum = Double.toString(num);
-  String partNum = 
-  for (int i = 0; i < num.
-}
+  char[] charArray = sNum.toCharArray();
+  double sum = 0;
 
+  for (int i = 0; i < charArray.length-1; i++) {
+    double part = Double.parseDouble(Character.toString(charArray[i]));
+    sum += part;
+  }
+  
+  return sum;
+}
