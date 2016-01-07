@@ -3,19 +3,22 @@ int beginIndex = 2;
 int endIndex = 12;
 String digits = e.substring(beginIndex, endIndex);
 double num = Double.parseDouble(digits);
+Boolean firstOperation = false;
 
 public void setup() {
 }  
 
 public void draw() {   
-  while (!isPrime(num)) {
+  while (!isPrime(num) && !firstOperation) {
     beginIndex++;
     endIndex++;
     digits = e.substring(beginIndex, endIndex);
     num = Double.parseDouble(digits);
+    firstOperation = true;
   }
-  println("First prime found: " + digits);
-  noLoop();
+  while ( ) { //do the second operation to find 5 numbers and then stop looping
+
+  }
 }
 
 public boolean isPrime(double num) {
@@ -27,15 +30,15 @@ public boolean isPrime(double num) {
   return true;
 }
 
-public double findSum(double num) {
-  String sNum = Double.toString(num);
-  char[] charArray = sNum.toCharArray();
-  double sum = 0;
+public boolean isSum49(int num) {
+	String sNum = Integer.toString(num);
+	int sum = 0;
 
-  for (int i = 0; i < charArray.length-1; i++) {
-    double part = Double.parseDouble(Character.toString(charArray[i]));
-    sum += part;
-  }
-  
-  return sum;
+	for (int i = 0; i < sNum.length(); i++) {
+    	int part = Integer.parseInt(sNum.substring(i, i+1));
+    	sum += part;
+	}
+	
+	if (sum == 49) 
+		return true;
 }
